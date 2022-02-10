@@ -1,0 +1,40 @@
+use_bpm 120
+use_synth :piano
+live_loop :song do
+  play :g3, release: 5
+  play :e3, release: 5
+  sleep 1
+  play :c3, release: 5
+  sleep 1
+  play :g3, release: 5
+  play :e3, release: 5
+  sleep 1
+  play :c3
+  sleep 1
+  play :e3, release: 5
+  play :b3, release: 5
+  sleep 1
+  play :c3, release: 5
+  sleep 1
+  play :a3, release: 5
+  play :f3, release: 5
+  sleep 1
+  play :c3
+  sleep 1
+  play :a3, release: 5
+  play :f3, release: 5
+  sleep 1
+  play :c3
+  sleep 1
+  play :a3, release: 5
+  play :f3
+  sleep 1
+  play :c3
+  sleep 1
+  play :a3, release: 5
+  sleep 0.5
+  play :a3
+  sleep 0.5
+  play :b3
+  sleep 1
+end
