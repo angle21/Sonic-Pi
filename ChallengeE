@@ -1,0 +1,124 @@
+# TEMPO & SYNTH
+use_bpm 180
+use_synth :chipbass
+
+# VARIABLES TO STORE SAMPLES
+define :coin do
+  sample "C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/coin.wav"
+end
+define :jump do
+  sample "C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/jump.wav"
+end
+define :mario_beat do
+  sample "C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/mario_beat.wav"
+end
+define :pipe do
+  sample"C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/pipe.wav"
+end
+define :oneup do
+  sample"C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/oneup.wav"
+end
+define :intro do
+  sample "C:/Users/angel_guzman/Downloads/mario_sounds-20220222T193011Z-001/mario_sounds/mario_intro.wav"
+end
+
+
+# INTRO
+live_loop :int do
+  1.times do
+    jump
+    sleep 2.5
+    pipe
+    sleep 3
+    intro
+    sleep 8
+    play :e4
+    sleep 0.5
+    play :e4
+    sleep 1
+    play :e4
+    sleep 1
+    play :c4
+    sleep 0.5
+    play :e4
+    sleep 1
+    play :g4
+    sleep 2
+    play :g3
+    sleep 2
+  end
+  stop
+end
+sleep 14
+coin
+sleep 0.5
+coin
+sleep 0.5
+coin
+sleep 6.5
+
+
+
+# PART ONE
+play :c4
+sleep 1.5
+play :g3
+sleep 1.5
+play :e3
+sleep 1.5
+play :a3
+sleep 1
+play :b3
+sleep 1
+play :bb3
+sleep 0.5
+play :a3
+sleep 1
+pipe
+sleep 3.5
+with_fx :whammy do
+  play :c4
+  sleep 1.5
+  play :g3
+  sleep 1.5
+  play :e3
+  sleep 1.5
+  play :a3
+  sleep 1
+  play :b3
+  sleep 1
+  play :bb3
+  sleep 0.5
+  play :a3
+  sleep 1
+end
+
+pipe
+sleep 3.5
+
+#PART TWO
+play :g3
+sleep 2/3.0 #0.666666...
+play :e4
+sleep 2/3.0 #0.666666...
+play :g4
+sleep 2/3.0 #0.666666...
+play :a4
+sleep 1
+play :f4
+sleep 0.5
+play :g4
+sleep 1
+play :e4
+sleep 1
+play :c4
+sleep 0.5
+play :d4
+sleep 0.5
+play :b3
+sleep 2
+jump
+sleep 2
+pipe
+sleep 3
+mario_beat
