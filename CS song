@@ -1,0 +1,245 @@
+use_bpm 120
+use_synth :piano
+
+define :first_round do
+  play :g2
+  sleep 1
+  play :d3
+  play :b3
+  sleep 1
+  play :d3
+  play :b3
+  sleep 1
+end
+
+define :second_round do
+  play :d3
+  sleep 1
+  play :g3
+  play :b3
+  sleep 1
+  play :g3
+  play :b3
+  sleep 1
+end
+
+
+
+live_loop :top do
+  1.times do
+    play :b4
+    sleep 2.5
+    play :a4
+    sleep 0.5
+    play :g4
+    sleep 2.5
+    play :e4
+    sleep 0.5
+    play :d4
+    sleep 3
+    play :b4
+    sleep 1
+    play :e5
+    sleep 1
+    play :d5
+    sleep 0.5
+    play :cs5
+    sleep 0.5
+    play :d5
+    sleep 9
+    play :b4
+    sleep 1
+    play :e5
+    sleep 1
+    play :c5
+    sleep 1
+    play :d5
+    sleep 2
+    play :cs5
+    sleep 0.5
+    play :d5
+    sleep 0.5
+    play :cs5
+    sleep 2.5
+    play :b4
+    sleep 0.5
+    play :cs5
+    sleep 0.5
+    play :b4
+    sleep 0.5
+    play :b4
+    sleep 2
+    play :b4
+    sleep 1
+    play :e5
+    sleep 1.5
+    play :b4
+    sleep 0.5
+    play :d5
+    sleep 2
+    play :cs5
+    sleep 0.5
+    play :d5
+    sleep 0.5
+    play :cs5
+    sleep 2.5
+    play :b4
+    sleep 0.5
+    play :cs5
+    sleep 0.5
+    play :b4
+    sleep 0.5
+    play :b4
+    sleep 2
+    play :b4
+    sleep 1
+    play :d5
+    sleep 1
+    play :e5
+    sleep 1
+    play :fs5
+    sleep 2
+    play :e5
+    sleep 0.5
+    play :d5
+    sleep 0.5
+    play :e5
+    sleep 0.5
+    play :fs5
+    sleep 0.5
+    play :e5
+    sleep 1
+    play :d5
+    sleep 1
+    play :e5
+    sleep 0.5
+    play :d5
+    sleep 2.5
+    sleep 1
+    play :d5
+    sleep 1.5
+    play :e5
+    sleep 0.5
+    play :d5
+    sleep 3
+  end
+  stop
+end
+
+live_loop :bottom do
+  1.times do
+    first_round
+    second_round
+    first_round
+    second_round
+    first_round
+    second_round
+    first_round
+    second_round
+    play :b2
+    sleep 1
+    play :d4
+    play :fs3
+    sleep 1
+    play :d4
+    play :fs3
+    sleep 1
+    play :a2
+    sleep 1
+    play :e3
+    play :cs4
+    sleep 1
+    play :e3
+    play :cs4
+    sleep 1
+    play :g2
+    sleep 1
+    play :d3
+    play :b3
+    sleep 1
+    play :d3
+    play :b3
+    sleep 1
+    play :g2
+    sleep 1
+    play :d3
+    play :b3
+    sleep 1
+    play :a2
+    sleep 1
+    play :b2
+    sleep 1
+    play :d3
+    play :d4
+    sleep 1
+    play :d3
+    play :d4
+    sleep 1
+    play :a2
+    sleep 1
+    play :cs4
+    play :e3
+    sleep 1
+    play :cs4
+    play :e4
+    sleep 1
+    play :g2
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :g2
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :b2
+    sleep 1
+    play :d4
+    play :fs3
+    sleep 1
+    play :d4
+    play :fs3
+    sleep 1
+    play :a2
+    sleep 1
+    play :cs4
+    play :e3
+    sleep 1
+    play :cs4
+    play :e3
+    sleep 1
+    play :g2
+    sleep 1
+    play :b3
+    play :g3
+    sleep 1
+    play :b3
+    play :g3
+    sleep 1
+    play :g2
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :b3
+    play :g3
+    sleep 1
+    play :d1
+    sleep 1
+    play :a2
+    play :fs3
+    sleep 1
+    play :a2
+    play :fs3
+    sleep 1
+    
+  end
+  stop
+end
