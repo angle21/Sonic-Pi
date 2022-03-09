@@ -23,7 +23,23 @@ define :second_round do
   sleep 1
 end
 
+define :first do
+  play :a4
+  play :b3
+  sleep 0.5
+  play :fs4
+  play :d4
+  sleep 0.5
+end
 
+define :second do
+  play :a4
+  play :a3
+  sleep 0.5
+  play :fs4
+  play :cs4
+  sleep 0.5
+end
 
 live_loop :top do
   1.times do
@@ -121,7 +137,16 @@ live_loop :top do
     play :e5
     sleep 0.5
     play :d5
-    sleep 3
+    sleep 12
+    4.times do
+      first
+      first
+      first
+      second
+      second
+      second
+    end
+    
   end
   stop
 end
@@ -239,6 +264,64 @@ live_loop :bottom do
     play :a2
     play :fs3
     sleep 1
+    play :a2
+    sleep 1
+    play :a3
+    play :fs3
+    sleep 1
+    play :a3
+    play :fs3
+    sleep 1
+    play :fs2
+    sleep 1
+    play :as3
+    play :cs3
+    sleep 1
+    play :a3
+    play :cs3
+    sleep 1
+    play :g2
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    play :b3
+    play :d3
+    sleep 1
+    2.times do
+      play :b2
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+      play :a2
+      sleep 1
+      play :cs3
+      play :fs3
+      sleep 1
+      play :cs3
+      play :fs3
+      sleep 1
+      play :g2
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+      play :g2
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+      play :d3
+      play :fs3
+      sleep 1
+    end
     
   end
   stop
