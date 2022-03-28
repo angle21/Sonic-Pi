@@ -1,25 +1,14 @@
 use_bpm 120
 use_synth :piano
 
-define :first_round do
-  play :g2
+define :meow do |n1, n2, n3, n4, n5|
+  play n1
   sleep 1
-  play :d3
-  play :b3
+  play n2
+  play n3
   sleep 1
-  play :d3
-  play :b3
-  sleep 1
-end
-
-define :second_round do
-  play :d3
-  sleep 1
-  play :g3
-  play :b3
-  sleep 1
-  play :g3
-  play :b3
+  play n4
+  play n5
   sleep 1
 end
 
@@ -153,61 +142,20 @@ end
 
 live_loop :bottom do
   1.times do
-    first_round
-    second_round
-    first_round
-    second_round
-    first_round
-    second_round
-    first_round
-    second_round
-    play :b2
-    sleep 1
-    play :d4
-    play :fs3
-    sleep 1
-    play :d4
-    play :fs3
-    sleep 1
-    play :a2
-    sleep 1
-    play :e3
-    play :cs4
-    sleep 1
-    play :e3
-    play :cs4
-    sleep 1
-    play :g2
-    sleep 1
-    play :d3
-    play :b3
-    sleep 1
-    play :d3
-    play :b3
-    sleep 1
-    play :g2
-    sleep 1
-    play :d3
-    play :b3
-    sleep 1
-    play :a2
-    sleep 1
-    play :b2
-    sleep 1
-    play :d3
-    play :d4
-    sleep 1
-    play :d3
-    play :d4
-    sleep 1
-    play :a2
-    sleep 1
-    play :cs4
-    play :e3
-    sleep 1
-    play :cs4
-    play :e4
-    sleep 1
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :b2, :d4, :fs3, :d4, :fs3
+    meow :a2, :e3, :cs4, :e3, :cs4
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :g2, :d3, :b3, :a2, :r
+    meow :b2, :d3, :d4, :d3, :d4
+    meow :a2, :cs4, :e3, :cs4, :e3
     play :g2
     sleep 1
     play :b3
