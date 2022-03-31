@@ -1,5 +1,9 @@
 use_bpm 120
 use_synth :piano
+x=0.25
+
+vocals = "C:/Users/angel_guzman/Documents/Audacity/Vocals.wav"
+
 
 define :meow do |n1, n2, n3, n4, n5|
   play n1
@@ -30,6 +34,29 @@ define :second do
   sleep 0.5
 end
 
+live_loop :no do
+  2.times do
+    play :g2, amp: x
+    sleep 1
+    play :d3, amp: x
+    play :b3, amp: x
+    sleep 1
+    play :d3, amp: x
+    play :b3, amp: x
+    sleep 1
+    play :d3, amp: x
+    sleep 1
+    play :g3, amp: x
+    play :b3, amp: x
+    sleep 1
+    play :g3, amp: x
+    play :b3, amp: x
+    sleep 1
+    x=x+0.25
+  end
+  stop
+end
+sleep 12
 live_loop :top do
   1.times do
     play :b4
@@ -156,121 +183,25 @@ live_loop :bottom do
     meow :g2, :d3, :b3, :a2, :r
     meow :b2, :d3, :d4, :d3, :d4
     meow :a2, :cs4, :e3, :cs4, :e3
-    play :g2
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :g2
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :b2
-    sleep 1
-    play :d4
-    play :fs3
-    sleep 1
-    play :d4
-    play :fs3
-    sleep 1
-    play :a2
-    sleep 1
-    play :cs4
-    play :e3
-    sleep 1
-    play :cs4
-    play :e3
-    sleep 1
-    play :g2
-    sleep 1
-    play :b3
-    play :g3
-    sleep 1
-    play :b3
-    play :g3
-    sleep 1
-    play :g2
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :b3
-    play :g3
-    sleep 1
-    play :d1
-    sleep 1
-    play :a2
-    play :fs3
-    sleep 1
-    play :a2
-    play :fs3
-    sleep 1
-    play :a2
-    sleep 1
-    play :a3
-    play :fs3
-    sleep 1
-    play :a3
-    play :fs3
-    sleep 1
-    play :fs2
-    sleep 1
-    play :as3
-    play :cs3
-    sleep 1
-    play :a3
-    play :cs3
-    sleep 1
-    play :g2
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
-    play :b3
-    play :d3
-    sleep 1
+    meow :g2, :b3, :d3, :b3, :d3
+    meow :g2, :b3, :d3, :b3, :d3
+    meow :b2, :d4, :fs3, :d4, :fs3
+    meow :a2, :cs4, :e3, :cs4, :e3
+    meow :g2, :b3, :g3, :b3, :g3
+    meow :g2, :b3, :g3, :b3, :g3
+    meow :d1, :a2, :fs3, :a2, :fs3
+    meow :a2, :a3, :fs3, :a3, :fs3
+    meow :fs2, :as3, :cs3, :a3, :cs3
+    meow :g2, :b3, :d3, :b3, :d3
     2.times do
-      play :b2
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
-      play :a2
-      sleep 1
-      play :cs3
-      play :fs3
-      sleep 1
-      play :cs3
-      play :fs3
-      sleep 1
-      play :g2
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
-      play :g2
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
-      play :d3
-      play :fs3
-      sleep 1
+      meow :b2, :d3, :fs3, :d3, :fs3
+      meow :a2, :cs3, :fs3, :cs3, :fs3
+      meow :g2, :d3, :fs3, :d3, :fs3
+      meow :g2, :d3, :fs3, :d3, :fs3
     end
     
   end
   stop
 end
+sleep 1
+sample vocals, amp: 2
