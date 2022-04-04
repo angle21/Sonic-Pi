@@ -2,6 +2,8 @@ use_bpm 120
 use_synth :piano
 x=0.25
 
+notes = [":b4", ":a4", ":g4", ":e4", ":d4", ":e5", ":d5", ":cs5", ":d5", "fs5"]
+
 vocals = "C:/Users/angel_guzman/Documents/Audacity/Vocals.wav"
 
 
@@ -13,6 +15,17 @@ define :meow do |n1, n2, n3, n4, n5|
   sleep 1
   play n4
   play n5
+  sleep 1
+end
+
+define :meow2 do |n1, n2, n3, n4, n5|
+  play n1, amp: x
+  sleep 1
+  play n2, amp: x
+  play n3, amp: x
+  sleep 1
+  play n4, amp: x
+  play n5, amp: x
   sleep 1
 end
 
@@ -36,22 +49,8 @@ end
 
 live_loop :no do
   2.times do
-    play :g2, amp: x
-    sleep 1
-    play :d3, amp: x
-    play :b3, amp: x
-    sleep 1
-    play :d3, amp: x
-    play :b3, amp: x
-    sleep 1
-    play :d3, amp: x
-    sleep 1
-    play :g3, amp: x
-    play :b3, amp: x
-    sleep 1
-    play :g3, amp: x
-    play :b3, amp: x
-    sleep 1
+    meow2 :g2, :d3, :b3, :d3, :b3
+    meow2 :d3, :g3, :b3, :g3, :b3
     x=x+0.25
   end
   stop
@@ -83,7 +82,7 @@ live_loop :top do
     sleep 1
     play :e5
     sleep 1
-    play :c5
+    play :cs5
     sleep 1
     play :d5
     sleep 2
@@ -203,5 +202,20 @@ live_loop :bottom do
   end
   stop
 end
+x=1
 sleep 1
 sample vocals, amp: 2
+sleep 95
+live_loop :yes do
+  3.times do
+    meow2 :b2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+    meow2 :a2, :cs3, :fs3, :cs3, :fs3
+    x=x-0.09
+    meow2 :g2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+    meow2 :g2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+  end
+  stop
+end
