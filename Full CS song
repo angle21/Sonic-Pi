@@ -1,0 +1,243 @@
+use_bpm 120
+use_synth :piano
+x=0.25
+n = 0
+s = 0
+
+notes = [":b4", ":a4", ":g4", ":e4", ":d4", ":b4", ":e5", ":d5", ":cs5", ":d5", ":b4", ":e5", ":cs5", ":d5", ":cs5", ":d5", ":cs5", ":b4", ":cs5", ":b4", ":b4", ":b4", ":e5", ":b4", ":d5", ":cs5", ":d5", ":cs5", ":b4", ":cs5", ":b4", ":b4", ":b4", ":d5", ":e5", ":fs5", "e5", ":d5", ":e5", ":fs5", ":e5", ":d5", ":e5", ":d5", ":d5", ":e5", ":d5"]
+sleeps = [2.5, 0.5, 2.5, 0.5, 3, 1, 1, 0.5, 0.5, 9, 1, 1, 1, 2, 0.5, 0.5, 2.5, 0.5, 0.5, 0.5, 2, 1, 1.5, 0.5, 2, 0.5, 0.5, 2.5, 0.5, 0.5, 0.5, 2, 1, 1, 1, 2, 0.5, 0.5, 0.5, 0.5, 1, 1, 0.5, 3.5, 1.5, 0.5, 12]
+
+vocals = "C:/Users/angel_guzman/Documents/Audacity/Vocals.wav"
+
+define :meow do |n1, n2, n3, n4, n5|
+  play n1
+  sleep 1
+  play n2
+  play n3
+  sleep 1
+  play n4
+  play n5
+  sleep 1
+end
+
+define :meow2 do |n1, n2, n3, n4, n5|
+  play n1, amp: x
+  sleep 1
+  play n2, amp: x
+  play n3, amp: x
+  sleep 1
+  play n4, amp: x
+  play n5, amp: x
+  sleep 1
+end
+
+define :first do
+  play :a4
+  play :b3
+  sleep 0.5
+  play :fs4
+  play :d4
+  sleep 0.5
+end
+
+define :second do
+  play :a4
+  play :a3
+  sleep 0.5
+  play :fs4
+  play :cs4
+  sleep 0.5
+end
+
+live_loop :no do
+  2.times do
+    meow2 :g2, :d3, :b3, :d3, :b3
+    meow2 :d3, :g3, :b3, :g3, :b3
+    x=x+0.25
+  end
+  stop
+end
+sleep 12
+live_loop :top do
+  46.times do
+    play notes[n]
+    sleep sleeps[s]
+    n = n + 1
+    s = s + 1
+  end
+  stop
+end
+
+live_loop :bottom do
+  1.times do
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :d3, :g3, :b3, :g3, :b3
+    meow :b2, :d4, :fs3, :d4, :fs3
+    meow :a2, :e3, :cs4, :e3, :cs4
+    meow :g2, :d3, :b3, :d3, :b3
+    meow :g2, :d3, :b3, :a2, :r
+    meow :b2, :d3, :d4, :d3, :d4
+    meow :a2, :cs4, :e3, :cs4, :e3
+    meow :g2, :b3, :d3, :b3, :d3
+    meow :g2, :b3, :d3, :b3, :d3
+    meow :b2, :d4, :fs3, :d4, :fs3
+    meow :a2, :cs4, :e3, :cs4, :e3
+    meow :g2, :b3, :g3, :b3, :g3
+    meow :g2, :b3, :g3, :b3, :g3
+    meow :d1, :a2, :fs3, :a2, :fs3
+    meow :a2, :a3, :fs3, :a3, :fs3
+    meow :fs2, :as3, :cs3, :a3, :cs3
+    meow :g2, :b3, :d3, :b3, :d3
+    2.times do
+      meow :b2, :d3, :fs3, :d3, :fs3
+      meow :a2, :cs3, :fs3, :cs3, :fs3
+      meow :g2, :d3, :fs3, :d3, :fs3
+      meow :g2, :d3, :fs3, :d3, :fs3
+    end
+    
+  end
+  stop
+end
+
+sleep 72
+live_loop :bark do
+  4.times do
+    first
+    first
+    first
+    second
+    second
+    second
+  end
+  stop
+end
+
+x=1
+sleep 1
+sample vocals, amp: 2
+sleep 23
+live_loop :yes do
+  3.times do
+    meow2 :b2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+    meow2 :a2, :cs3, :fs3, :cs3, :fs3
+    x=x-0.09
+    meow2 :g2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+    meow2 :g2, :d3, :fs3, :d3, :fs3
+    x=x-0.09
+  end
+  stop
+end
+sleep 15
+#--------------------------Second Song--------------------------
+use_bpm 180
+h = 0
+l = 0
+
+grass = "C:/Users/messy/Downloads/se_step_grass.wav"
+open = "C:/Users/messy/Downloads/Sound_Effects_-_Pokmon_Anime_7_(getmp3.pro).wav"
+throw = "C:/Users/messy/Downloads/Pokmon_RedBlueYellow_-_Pokball_(getmp3.pro).wav"
+caught = "C:/Users/messy/Downloads/caught sound effect.wav"
+wobble = "C:/Users/messy/Downloads/Sound_Effects_-_Pokmon_Anime_5_(getmp3.pro).wav"
+caught_music = "C:/Users/messy/Downloads/caught music.wav"
+pokeball = "C:/Users/messy/Downloads/pokeball.wav"
+
+notiths = [":a5", ":gs5", ":g5", ":fs5", ":a5", ":f5", ":gf5", ":f5", ":a5", ":f4", ":e5", ":e4", ":f5", ":f4", ":e5", ":e4", ":a5", ":ef4", ":ds5", ":e4", ":e5", ":ef4", ":d5", ":d4", ":a5", ":ef4", ":d5", ":d4", ":ef5", ":cs4", ":d5", ":d4", ":a5", ":cs4", ":cs5", ":c4", ":d5", ":cs4", ":cs5", ":c4", ":a5", ":b3", ":c5", ":c4", ":cs5", ":b3", ":c5", ":bf3", ":a5", ":b3", ":b4", ":bf3", ":c5", ":a3", ":b4", ":bf3", ":b5", ":d4", ":e4", ":f4", ":d4", ":e4", ":f4", ":c4", ":b5", ":d4", ":e4", ":f4", ":d4", ":e4", ":f4", ":a5", ":c4", ":e5", ":df4", ":b4", ":d4", ":cs5", ":e4", ":d5", ":f4", ":b4", ":d4", ":df5", ":e4", ":d5", ":f4", ":a5", ":c4", ":bf5", ":b5", ":d4", ":cs6", ":e4", ":d6", ":f4", ":b5", ":d4", ":cs6", ":e4", ":d6", ":f4", ":a5", ":c4", ":df4"]
+
+sleepiths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0 , 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 0.25, 0, 1.5, 1.5, 1, 0.5, 1, 1.5, 1, 0, 1.5, 1.5, 1, 0.5, 1, 1.5, 0, 0.5, 0, 0.5, 0, 1.5, 0, 1.5, 0, 1, 0, 0.5, 0, 1, 0, 1.5, 0, 0.5, 0.5, 0, 1.5, 0, 1.5, 0, 1, 0, 0.5, 0, 1, 0, 1.5, 0, 0.5, 0.5]
+
+define :this do |n1, n2, n3, n4|
+  play n1
+  sleep 0.5
+  play n2
+  sleep 0.5
+  play n3
+  sleep 0.5
+  play n4
+  sleep 0.5
+end
+
+define :thisL do |n1, n2, n3, n4|
+  play n1
+  sleep 0.25
+  play n2
+  sleep 0.25
+  play n3
+  sleep 0.25
+  play n4
+  sleep 0.25
+end
+
+sleep 15
+
+12.times do
+  sample grass
+  sleep 1.2
+end
+
+
+
+live_loop :it do
+  105.times do
+    play notiths[h]
+    sleep sleepiths[l]
+    h = h+1
+    l = l+1
+  end
+  stop
+end
+
+live_loop :it2 do
+  1.times do
+    thisL :b3, :bf3, :a3, :af3
+    thisL :a3, :gs3, :g3, :fs3
+    thisL :g3, :gf3, :f3, :e3
+    thisL :f3, :ef3, :ds3, :d3
+    thisL :ef3, :d3, :cs3, :c3
+    thisL :df3, :c3, :b2, :as2
+    thisL :b2, :as2, :a2, :gs2
+    thisL :a2, :gs2, :g2, :gf2
+    this :b2, :b2, :d3, :e3
+    this :b2, :f3, :e3, :d3
+    this :b2, :b2, :d3, :e3
+    this :b2, :d3, :as2, :c3
+    this :b2, :b2, :d3, :e3
+    this :b2, :f3, :e3, :d3
+    this :b2, :b2, :d3, :e3
+    this :b2, :d3, :as2, :c3
+    this :b2, :b2, :d3, :e3
+    this :b2, :f3, :e3, :d3
+    this :b2, :b2, :d3, :e3
+    this :b2, :d3, :as2, :c3
+    this :b2, :b2, :d3, :e3
+    this :b2, :f3, :e3, :d3
+    this :b2, :b2, :d3, :e3
+    this :b2, :d3, :as2, :c3
+  end
+  stop
+end
+sleep 6
+sample throw
+sleep 3.6
+sample open, amp: 0.5
+
+sleep 28
+sample throw
+sleep 3
+sample pokeball, amp: 0.5
+sleep 8
+2.times do
+  sample wobble, amp: 2
+  sleep 4
+end
+sleep 1
+sample caught
+sleep 3
+sample caught_music
