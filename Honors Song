@@ -84,8 +84,6 @@ live_loop :bottom do
   end
 end
 
-
-
 sleep 72
 live_loop :bark do
   4.times do
