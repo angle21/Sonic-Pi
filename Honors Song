@@ -1,21 +1,19 @@
-use_bpm 120
+use_bpm 130
 use_synth :piano
-x=0.25
+x = 0.25
 n = 0
-s = 0
 f = 0
 h = 1
 j = 2
 v = 3
 q = 4
+z = 0
 
 scram = [":g2", ":d3", ":b3", ":d3", ":b3", ":d3", ":g3", ":b3", ":g3", ":b3", ":g2", ":d3", ":b3", ":d3", ":b3", ":d3", ":g3", ":b3", ":g3", ":b3", ":g2", ":d3", ":b3", ":d3", ":b3", ":d3", ":g3", ":b3", ":g3", ":b3", ":g2", ":d3", ":b3", ":d3", ":b3", ":d3", ":g3", ":b3", ":g3", ":b3", ":b2", ":d4", ":fs3", ":d4", ":fs3", ":a2", ":e3", ":cs4", ":e3", ":cs4", ":g2", ":d3", ":b3", ":d3", ":b3", ":g2", ":d3", ":b3", ":a2", 0, ":b2", ":d3", ":d4", ":d3", ":d4", ":a2", ":cs4", ":e3", ":cs4", ":e3", ":g2", ":b3", ":d3", ":b3", ":d3", ":g2", ":b3", ":d3", ":b3", ":d3", ":b2", ":d4", ":fs3", ":d4", ":fs3", ":a2", ":cs4", ":e3", ":cs4", ":e3", ":g2", ":b3", ":g3", ":b3", ":g3", ":g2", ":b3", ":g3", ":b3", ":g3", ":d1", ":a2", ":fs3", ":a2", ":fs3", ":a2", ":a3", ":fs3", ":a3", ":fs3", ":fs2", ":as3", ":cs3", ":a3", ":cs3", ":g2", ":b3", ":d3", ":b3", ":d3", ":b2", ":d3", ":fs3", ":d3", ":fs3", ":a2", ":cs3", "fs3", ":cs3", ":fs3", ":g2", ":d3", ":fs3", ":d3", ":fs3", ":g2", ":d3", ":fs3", ":d3", ":fs3", ":b2", ":d3", ":fs3", ":d3", ":fs3", ":a2", ":cs3", ":fs3", ":cs3", ":fs3", ":g2", ":d3", "fs3", ":d3", ":fs3", ":g2", ":d3", ":fs3", ":d3", ":fs3"]
 notes = [":b4", ":a4", ":g4", ":e4", ":d4", ":b4", ":e5", ":d5", ":cs5", ":d5", ":b4", ":e5", ":cs5", ":d5", ":cs5", ":d5", ":cs5", ":b4", ":cs5", ":b4", ":b4", ":b4", ":e5", ":b4", ":d5", ":cs5", ":d5", ":cs5", ":b4", ":cs5", ":b4", ":b4", ":b4", ":d5", ":e5", ":fs5", "e5", ":d5", ":e5", ":fs5", ":e5", ":d5", ":e5", ":d5", ":d5", ":e5", ":d5"]
 sleeps = [2.5, 0.5, 2.5, 0.5, 3, 1, 1, 0.5, 0.5, 9, 1, 1, 1, 2, 0.5, 0.5, 2.5, 0.5, 0.5, 0.5, 2, 1, 1.5, 0.5, 2, 0.5, 0.5, 2.5, 0.5, 0.5, 0.5, 2, 1, 1, 1, 2, 0.5, 0.5, 0.5, 0.5, 1, 1, 0.5, 3.5, 1.5, 0.5, 12]
 
-vocals = "C:/Users/angel_guzman/Documents/Audacity/Vocals.wav"
-
-define :meow do |f, h, j, v, q|
+define :mainFunction do |f, h, j, v, q|
   play scram[f]
   sleep 1
   play scram[h]
@@ -26,7 +24,7 @@ define :meow do |f, h, j, v, q|
   sleep 1
 end
 
-define :meow2 do |n1, n2, n3, n4, n5|
+define :InOut do |n1, n2, n3, n4, n5|
   play n1, amp: x
   sleep 1
   play n2, amp: x
@@ -37,79 +35,74 @@ define :meow2 do |n1, n2, n3, n4, n5|
   sleep 1
 end
 
-define :first do
-  play :a4
-  play :b3
+define :fast do |n1, n2, n3, n4|
+  play n1
+  play n2
   sleep 0.5
-  play :fs4
-  play :d4
-  sleep 0.5
-end
-
-define :second do
-  play :a4
-  play :a3
-  sleep 0.5
-  play :fs4
-  play :cs4
+  play n3
+  play n4
   sleep 0.5
 end
 
-live_loop :no do
+live_loop :fadeIn do
   2.times do
-    meow2 :g2, :d3, :b3, :d3, :b3
-    meow2 :d3, :g3, :b3, :g3, :b3
+    InOut :g2, :d3, :b3, :d3, :b3
+    InOut :d3, :g3, :b3, :g3, :b3
     x=x+0.25
   end
   stop
 end
+
 sleep 12
+
 live_loop :top do
-  46.times do
+  if n < 47
     play notes[n]
-    sleep sleeps[s]
+    sleep sleeps[n]
     n = n + 1
-    s = s + 1
+  else n > 46
+    stop
   end
-  stop
 end
+
 live_loop :bottom do
-  32.times do
-    meow f, h, j, v, q
+  if z < 33
+    mainFunction f, h, j, v, q
     f = f + 5
     h = h + 5
     j = j + 5
     v = v + 5
     q = q + 5
+    z = z + 1
+  else z > 32
+    stop
   end
 end
 
 sleep 72
-live_loop :bark do
+live_loop :endNotes do
   4.times do
-    first
-    first
-    first
-    second
-    second
-    second
+    fast :a4, :b3, :fs4, :d4
+    fast :a4, :b3, :fs4, :d4
+    fast :a4, :b3, :fs4, :d4
+    fast :a4, :a3, :fs4, :cs4
+    fast :a4, :a3, :fs4, :cs4
+    fast :a4, :a3, :fs4, :cs4
   end
   stop
 end
 
 x=1
-sleep 1
-sample vocals, amp: 2
-sleep 23
-live_loop :yes do
+sleep 24
+live_loop :fadeOut do
   3.times do
-    meow2 :b2, :d3, :fs3, :d3, :fs3
+    InOut :b2, :d3, :fs3, :d3, :fs3
     x=x-0.09
-    meow2 :a2, :cs3, :fs3, :cs3, :fs3
+    InOut :a2, :cs3, :fs3, :cs3, :fs3
     x=x-0.09
-    meow2 :g2, :d3, :fs3, :d3, :fs3
+    InOut :g2, :d3, :fs3, :d3, :fs3
     x=x-0.09
-    meow2 :g2, :d3, :fs3, :d3, :fs3
+    InOut :g2, :d3, :fs3, :d3, :fs3
     x=x-0.09
   end
   stop
